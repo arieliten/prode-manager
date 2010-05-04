@@ -26,3 +26,7 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+# Action Mail default URL (required for Devise)
+config.action_mailer.default_url_options = { :host => 'localhost' }
+
