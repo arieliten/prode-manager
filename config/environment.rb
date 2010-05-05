@@ -9,6 +9,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate', :lib => 'will_paginate'
   config.gem 'devise', :version=>'1.0.7'
+  config.gem 'rubyist-aasm', :lib => 'aasm'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

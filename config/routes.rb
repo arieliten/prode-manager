@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.devise_for :users
+  map.devise_for :users, :path_names=>{:sign_in=>'login', :sign_out=>'logout', :sign_up=>'register', :password=>'secret', :confirmation => 'verification'}
 
   map.root :controller => "welcome"
 

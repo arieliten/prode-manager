@@ -1,0 +1,3 @@
+class League < Competition
+
+end

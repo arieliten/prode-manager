@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  competition: 
+  name: MyString
+  position: 1
+  completed: false
+
+two:
+  competition: 
+  name: MyString
+  position: 1
+  completed: false

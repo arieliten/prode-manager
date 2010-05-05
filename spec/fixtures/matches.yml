@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  competition_stage: 
+  home_team: 
+  visitor_team: 
+  starts_at: 2010-05-04 23:18:50
+  home_goals: 1
+  visitor_goals: 1
+  state: MyString
+
+two:
+  competition_stage: 
+  home_team: 
+  visitor_team: 
+  starts_at: 2010-05-04 23:18:50
+  home_goals: 1
+  visitor_goals: 1
+  state: MyString
