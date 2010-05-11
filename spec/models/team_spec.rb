@@ -3,25 +3,27 @@ require 'spec_helper'
 
 describe Team do
   before(:each) do
+    @competition = mock_model(Competition)
     @valid_attributes = {
       :name => "Fusion Libres B",
-      :shortening => "FLB"
+      :shortening => "FLB",
+      :competition => @competition
     }
   end
 
 
   describe "associations" do
+    it 'should belongs to a competition' do
+      Team.should belong_to(:competition)
+    end
+    it 'should belongs to a group' do
+      Team.should belong_to(:group)
+    end
     it 'should has many home matches' do
       Team.should have_many(:home_matches, :class_name=>'Match', :foreign_key=>'home_team_id')
     end
     it 'should has many visitor matches' do
       Team.should have_many(:visitor_matches, :class_name=>'Match', :foreign_key=>'visitor_team_id')
-    end
-    it 'should has many competition teams' do
-      Team.should have_many(:competition_teams)
-    end
-    it 'should has many competitions' do
-      Team.should have_many(:competitions, :through=>:competition_teams, :source=>:competition)
     end
   end
 
@@ -36,10 +38,15 @@ describe Team do
       @team.should_not be_valid
       @team.errors_on(:name).should_not be_empty
     end
-    it "should not create a new instance with a long shortening" do
+    it "should not create a new instance without a long shortening" do
       @team = Team.new(@valid_attributes.merge!(:shortening=>'long abbreviation'))
       @team.should_not be_valid
       @team.errors_on(:shortening).should_not be_empty
+    end
+    it "should not create a new instance without an associated competition" do
+      @team = Team.new(@valid_attributes.merge!(:competition=>nil))
+      @team.should_not be_valid
+      @team.errors_on(:competition).should_not be_empty
     end
   end
 

@@ -19,11 +19,8 @@ describe Competition do
     it 'should has many matches' do
       Competition.should have_many(:matches, :through=>:competition_stages, :source=>:matches)
     end
-    it 'should has many competition teams' do
-      Competition.should have_many(:competition_teams)
-    end
     it 'should has many teams' do
-      Competition.should have_many(:teams, :through=>:competition_teams, :source=>:team)
+      Competition.should have_many(:teams)
     end
   end
 

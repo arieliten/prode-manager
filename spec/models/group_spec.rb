@@ -15,6 +15,9 @@ describe Group do
     it 'should belongs to a competition stage' do
       Group.should belong_to(:competition_stage)
     end
+    it "should have many teams" do
+      Group.should have_many(:teams)
+    end
   end
 
   
