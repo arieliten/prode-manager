@@ -10,13 +10,11 @@ describe CompetitionStage do
     }
   end
 
-
 #  describe "plugins inclusions" do
 #     it 'should include acts as list' do 
 #       CompetitionStage.should include(ActiveRecord::Acts::List)
 #     end
 #  end
-
 
   describe "associations" do
     it 'should belongs to a competition' do
@@ -24,6 +22,9 @@ describe CompetitionStage do
     end
     it 'should has many matches' do
       CompetitionStage.should have_many(:matches)
+    end
+    it 'should has many groups' do
+      CompetitionStage.should have_many(:groups)
     end
   end
 

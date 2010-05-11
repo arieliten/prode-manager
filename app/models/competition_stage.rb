@@ -5,6 +5,7 @@ class CompetitionStage < ActiveRecord::Base
   # == Relations
   belongs_to :competition
   has_many :matches
+  has_many :groups
 
   # == Validations
   validates_presence_of :competition, :name
