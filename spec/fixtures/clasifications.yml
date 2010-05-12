@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  team: 
+  stage: 
+  group: 
+  name: MyString
+  position_key: MyString
+
+two:
+  team: 
+  stage: 
+  group: 
+  name: MyString
+  position_key: MyString
