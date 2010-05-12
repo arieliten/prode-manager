@@ -21,6 +21,12 @@ describe Clasification do
     it "should belongs to a group" do
       Clasification.should belong_to(:group)
     end
+    it "should has many home matches" do
+      Clasification.should have_many(:home_matches, :class_name=>'Match')
+    end
+    it "should has many visitor matches" do
+      Clasification.should have_many(:visitor_matches, :class_name=>'Match')
+    end
   end
 
 

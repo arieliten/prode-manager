@@ -2,8 +2,12 @@ class Team < ActiveRecord::Base
   # == Relations
   belongs_to :competition
   belongs_to :group
-  has_many :home_matches,    :class_name=>'Match', :foreign_key=>'home_team_id'
-  has_many :visitor_matches, :class_name=>'Match', :foreign_key=>'visitor_team_id'
+  has_many :clasifications
+  has_many :home_matches,   :through=>:clasifications, :source=>:home_matches
+  has_many :visitor_matches,:through=>:clasifications, :source=>:visitor_matches
+  # To gain perfomance
+  #has_many :home_matches,    :class_name=>'Match', :foreign_key=>'home_team_id'
+  #has_many :visitor_matches, :class_name=>'Match', :foreign_key=>'visitor_team_id'
 
   # == Validations
   validates_presence_of :name, :competition

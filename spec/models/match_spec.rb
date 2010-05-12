@@ -3,12 +3,12 @@ require 'spec_helper'
 
 describe Match do
   before(:each) do
-    @home_team = mock_model(Team)
-    @visitor_team = mock_model(Team)
+    @home_clasification = mock_model(Clasification)
+    @visitor_clasification = mock_model(Clasification)
     @valid_attributes = {
       :starts_at => 2.days.since,
-      :home_team => @home_team,
-      :visitor_team => @visitor_team
+      :home_clasification => @home_clasification,
+      :visitor_clasification => @visitor_clasification
 #      :home_goals => 3,
 #      :visitor_goals => 1,
 #      :state => "playing"
@@ -23,6 +23,15 @@ describe Match do
 
 
   describe "associations" do
+    it 'should belongs to a stage' do
+      Match.should belong_to(:stage)
+    end
+    it 'should belongs to a home clasification' do
+      Match.should belong_to(:home_clasification, :class_name=>'Clasification')
+    end
+    it 'should belongs to a visitor clasification' do
+      Match.should belong_to(:visitor_clasification, :class_name=>'Clasification')
+    end
     it 'should belongs to a home team' do
       Match.should belong_to(:home_team, :class_name=>'Team')
     end
@@ -37,15 +46,15 @@ describe Match do
       @match = Match.new(@valid_attributes)
       @match.should be_valid
     end
-    it "should not create a new instance without an associated home team" do
-      @match = Match.new(@valid_attributes.merge!(:home_team=>nil))
+    it "should not create a new instance without an associated home clasification" do
+      @match = Match.new(@valid_attributes.merge!(:home_clasification=>nil))
       @match.should_not be_valid
-      @match.errors_on(:home_team).should_not be_empty
+      @match.errors_on(:home_clasification).should_not be_empty
     end
-    it "should not create a new instance without an associated visitor team" do
-      @match = Match.new(@valid_attributes.merge!(:visitor_team=>nil))
+    it "should not create a new instance without an associated visitor clasification" do
+      @match = Match.new(@valid_attributes.merge!(:visitor_clasification=>nil))
       @match.should_not be_valid
-      @match.errors_on(:visitor_team).should_not be_empty
+      @match.errors_on(:visitor_clasification).should_not be_empty
     end
   end
 

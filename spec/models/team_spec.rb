@@ -19,11 +19,14 @@ describe Team do
     it 'should belongs to a group' do
       Team.should belong_to(:group)
     end
+    it 'should has many clasifications' do
+      Team.should have_many(:clasifications)
+    end
     it 'should has many home matches' do
-      Team.should have_many(:home_matches, :class_name=>'Match', :foreign_key=>'home_team_id')
+      Team.should have_many(:home_matches, :through=>:clasifications, :source=>:home_matches)
     end
     it 'should has many visitor matches' do
-      Team.should have_many(:visitor_matches, :class_name=>'Match', :foreign_key=>'visitor_team_id')
+      Team.should have_many(:visitor_matches, :through=>:clasifications, :source=>:visitor_matches)
     end
   end
 

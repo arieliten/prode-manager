@@ -13,14 +13,14 @@ describe Competition do
 
 
   describe "associations" do
-    it 'should has many competition stages' do
-      Competition.should have_many(:competition_stages)
-    end
-    it 'should has many matches' do
-      Competition.should have_many(:matches, :through=>:competition_stages, :source=>:matches)
-    end
     it 'should has many teams' do
       Competition.should have_many(:teams)
+    end
+    it 'should has many stages' do
+      Competition.should have_many(:stages)
+    end
+    it 'should has many matches' do
+      Competition.should have_many(:matches, :through=>:stages, :source=>:matches)
     end
   end
 

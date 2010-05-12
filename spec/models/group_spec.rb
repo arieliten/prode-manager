@@ -10,8 +10,11 @@ describe Group do
 
 
   describe "associations" do
-    it "should have many teams" do
-      Group.should have_many(:teams)
+    it 'should belongs to a stage' do
+      Group.should belong_to(:stage)
+    end
+    it "should have many clasifications" do
+      Group.should have_many(:clasifications)
     end
   end
 

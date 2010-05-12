@@ -2,11 +2,15 @@ class Match < ActiveRecord::Base
   include AASM
 
   # == Relations
+  belongs_to :stage
+  belongs_to :home_clasification,   :class_name=>'Clasification'
+  belongs_to :visitor_clasification,:class_name=>'Clasification'
+  # To gain perfomance
   belongs_to :home_team,   :class_name=>'Team'
   belongs_to :visitor_team,:class_name=>'Team'
 
   # == Validations
-  validates_presence_of :home_team, :visitor_team
+  validates_presence_of :home_clasification, :visitor_clasification
 
   # == State Machine Conf
   aasm_column :state

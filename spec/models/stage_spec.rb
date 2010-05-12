@@ -15,6 +15,15 @@ describe Stage do
     it "should belongs to a Competition" do
       Stage.should belong_to(:competition)
     end
+    it "should has many clasification" do
+      Stage.should have_many(:clasifications)
+    end
+    it "should has many matches" do
+      Stage.should have_many(:matches)
+    end
+    it "should has many groups" do
+      Stage.should have_many(:groups)
+    end
   end
 
 
