@@ -3,11 +3,9 @@ require 'spec_helper'
 
 describe Match do
   before(:each) do
-    @stage = mock_model(CompetitionStage)
     @home_team = mock_model(Team)
     @visitor_team = mock_model(Team)
     @valid_attributes = {
-      :competition_stage => @stage,
       :starts_at => 2.days.since,
       :home_team => @home_team,
       :visitor_team => @visitor_team
@@ -25,9 +23,6 @@ describe Match do
 
 
   describe "associations" do
-    it 'should belongs to a competition stage' do
-      Match.should belong_to(:competition_stage)
-    end
     it 'should belongs to a home team' do
       Match.should belong_to(:home_team, :class_name=>'Team')
     end
@@ -41,11 +36,6 @@ describe Match do
     it "should create a new instance given valid attributes" do
       @match = Match.new(@valid_attributes)
       @match.should be_valid
-    end
-    it "should not create a new instance without an associated competition's stage" do
-      @match = Match.new(@valid_attributes.merge!(:competition_stage=>nil))
-      @match.should_not be_valid
-      @match.errors_on(:competition_stage).should_not be_empty
     end
     it "should not create a new instance without an associated home team" do
       @match = Match.new(@valid_attributes.merge!(:home_team=>nil))
