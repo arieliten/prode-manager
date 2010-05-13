@@ -2,6 +2,7 @@ class Team < ActiveRecord::Base
   # == Relations
   belongs_to :competition
   belongs_to :group
+  has_many :players
   has_many :clasifications
   has_many :home_matches,   :through=>:clasifications, :source=>:home_matches
   has_many :visitor_matches,:through=>:clasifications, :source=>:visitor_matches
@@ -12,4 +13,12 @@ class Team < ActiveRecord::Base
   # == Validations
   validates_presence_of :name, :competition
   validates_length_of :shortening, :allow_blank=>true, :maximum => 5
+
+
+  # == Instance Methods
+
+  def matches
+    home_matches + visitor_matches
+  end
+
 end

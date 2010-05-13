@@ -19,6 +19,9 @@ describe Team do
     it 'should belongs to a group' do
       Team.should belong_to(:group)
     end
+    it 'should has many players' do
+      Team.should have_many(:players)
+    end
     it 'should has many clasifications' do
       Team.should have_many(:clasifications)
     end

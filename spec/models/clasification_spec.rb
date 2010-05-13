@@ -22,10 +22,10 @@ describe Clasification do
       Clasification.should belong_to(:group)
     end
     it "should has many home matches" do
-      Clasification.should have_many(:home_matches, :class_name=>'Match')
+      Clasification.should have_many(:home_matches, :class_name=>'Match', :foreign_key=>'home_clasification_id')
     end
     it "should has many visitor matches" do
-      Clasification.should have_many(:visitor_matches, :class_name=>'Match')
+      Clasification.should have_many(:visitor_matches, :class_name=>'Match', :foreign_key=>'visitor_clasification_id')
     end
   end
 

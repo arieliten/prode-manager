@@ -3,11 +3,11 @@ class Match < ActiveRecord::Base
 
   # == Relations
   belongs_to :stage
-  belongs_to :home_clasification,   :class_name=>'Clasification'
-  belongs_to :visitor_clasification,:class_name=>'Clasification'
+  belongs_to :home_clasification,   :class_name=>'Clasification', :foreign_key=>'home_clasification_id'
+  belongs_to :visitor_clasification,:class_name=>'Clasification', :foreign_key=>'visitor_clasification_id'
   # To gain perfomance
-  belongs_to :home_team,   :class_name=>'Team'
-  belongs_to :visitor_team,:class_name=>'Team'
+  belongs_to :home_team,   :class_name=>'Team', :foreign_key=>'home_team_id'
+  belongs_to :visitor_team,:class_name=>'Team', :foreign_key=>'visitor_team_id'
 
   # == Validations
   validates_presence_of :home_clasification, :visitor_clasification

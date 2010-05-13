@@ -27,16 +27,16 @@ describe Match do
       Match.should belong_to(:stage)
     end
     it 'should belongs to a home clasification' do
-      Match.should belong_to(:home_clasification, :class_name=>'Clasification')
+      Match.should belong_to(:home_clasification, :class_name=>'Clasification', :foreign_key=>'home_clasification_id')
     end
     it 'should belongs to a visitor clasification' do
-      Match.should belong_to(:visitor_clasification, :class_name=>'Clasification')
+      Match.should belong_to(:visitor_clasification, :class_name=>'Clasification', :foreign_key=>'visitor_clasification_id')
     end
     it 'should belongs to a home team' do
-      Match.should belong_to(:home_team, :class_name=>'Team')
+      Match.should belong_to(:home_team, :class_name=>'Team', :foreign_key=>'home_team_id')
     end
     it 'should belongs to an visitor team' do
-      Match.should belong_to(:visitor_team, :class_name=>'Team')
+      Match.should belong_to(:visitor_team, :class_name=>'Team', :foreign_key=>'visitor_team_id')
     end
   end
 
