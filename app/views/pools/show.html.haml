@@ -1,0 +1,33 @@
+- title "Pool"
+
+%p
+  %strong User:
+  =h @pool.user
+%p
+  %strong Competition:
+  =h @pool.competition
+%p
+  %strong Match:
+  =h @pool.match
+%p
+  %strong Home Team:
+  =h @pool.home_team
+%p
+  %strong Visitor Team:
+  =h @pool.visitor_team
+%p
+  %strong Home Goals:
+  =h @pool.home_goals
+%p
+  %strong Visitor Goals:
+  =h @pool.visitor_goals
+%p
+  %strong Score:
+  =h @pool.score
+
+%p
+  = link_to "Edit", edit_pool_path(@pool)
+  |
+  = link_to "Destroy", @pool, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", pools_path

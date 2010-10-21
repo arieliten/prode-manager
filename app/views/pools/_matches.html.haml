@@ -1,0 +1,24 @@
+%table
+  %tr
+    %th Fecha
+    %th Local
+    %th #
+    %th #
+    %th Visitante
+    %th Estado
+  - matches.each do |match|
+    %tr
+      %td= match.starts_at
+      %td= match.home_to_s
+      -#%td= match.editable?? in_place_editor_field(match, :home_goals) : match.home_goals
+      -#%td= match.editable?? in_place_editor_field(match, :visitor_goals) : match.visitor_goals
+      %td
+        .update_home{:id=>match.id}
+          = match.home_goals_bet_from(current_user)
+      %td
+        .update_visitor{:id=>match.id}
+          = match.visitor_goals_bet_from(current_user)
+      %td= match.visitor_to_s
+      %td= match.state
+
+

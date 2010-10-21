@@ -1,0 +1,23 @@
+%h1 List Competitions
+
+%table
+  %tr
+    %th Mode
+    %th Name
+    %th Starts at
+    %th Ends At
+    %th Number of Teams
+    %th Options
+  - for competition in @competitions
+    %tr
+      %td= h competition.type
+      %td= h competition.name
+      %td= h competition.starts_at
+      %td= h competition.ends_at
+      %td= h competition.max_number_of_participants
+      %td
+        = link_to 'Edit', '#' #edit_admin_competition_path(competition)
+        |
+        = link_to 'Destroy', admin_competition_path(competition), :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Competition", new_admin_competition_path

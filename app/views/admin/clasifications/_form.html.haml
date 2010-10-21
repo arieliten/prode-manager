@@ -1,0 +1,31 @@
+
+.group
+  = f.label :team_id, t("activerecord.attributes.clasification.team_id", :default => "Team"), :class => :label
+  = f.text_field :team_id, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :stage_id, t("activerecord.attributes.clasification.stage_id", :default => "Stage"), :class => :label
+  = f.text_field :stage_id, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :group_id, t("activerecord.attributes.clasification.group_id", :default => "Group"), :class => :label
+  = f.text_field :group_id, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :name, t("activerecord.attributes.clasification.name", :default => "Name"), :class => :label
+  = f.text_field :name, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :position_key, t("activerecord.attributes.clasification.position_key", :default => "Position key"), :class => :label
+  = f.text_field :position_key, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+        
+.group.navform.wat-cf
+  %button.button{:type => 'submit'}
+    = image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
+    = t("web-app-theme.save", :default => "Save")
+  = link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}", admin_clasifications_path, :class => "button"

@@ -1,0 +1,55 @@
+%h1 Mi Prode
+
+#stages
+  %ul
+    - @stages.each do |stage|
+      %li= link_to stage.name, "##{stage.permalink}"
+
+  - @stages.each do |stage|
+    %div{:id=>stage.permalink}
+      - if stage.groups.any?
+        #groups
+          %ul
+            - stage.groups.each do |group|
+              %li= link_to group.name, "##{group.permalink}"
+        - stage.groups.each do |group|
+          %div{:id=>group.permalink}
+            = render :partial => 'matches', :locals=>{:matches=>group.matches}
+            =# render :partial => 'matches', :locals=>{:matches=>@pools.select{|p|p.stage.eql?(stage)}.map(&:match).select{|m| m.group.eql?(group)}}
+      - else
+        = render :partial => 'matches', :locals=>{:matches=>stage.matches}
+        =# render :partial => 'matches', :locals=>{:matches=>@pools.select{|p|p.stage.eql?(stage)}.map(&:match)}
+
+- @indicator_image = image_tag('mini-spinner.gif')
+- content_for :javascripts do
+  :javascript
+    $(document).ready(function() { 
+      // Making Tabs
+      $("#stages").tabs();
+      $("#groups").tabs();
+
+      // Setting edit in place
+      $('.update_home').each(function(i) {
+        $(this).editable("/pools/", {
+          submitdata: {type:'home'},
+          indicator: '#{@indicator_image}',
+          submit   : 'ok',
+          cancel   : 'cancel',
+          select   : true,
+          tooltip  : 'Presioname si queres apostar chabon...'
+        })
+      });
+      $('.update_visitor').each(function(i) {
+        $(this).editable("/pools/", {
+          submitdata: {type:'visitor'},
+          indicator: '#{@indicator_image}',
+          submit   : 'ok',
+          cancel   : 'cancel',
+          select   : true,
+          tooltip  : 'Presioname si queres apostar chabon...'
+        })
+      });
+      
+    });
+
+

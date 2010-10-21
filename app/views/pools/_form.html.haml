@@ -1,0 +1,36 @@
+- form_for @pool do |f|
+  = f.error_messages
+  %p
+    = f.label :user
+    %br
+    = f.text_field :user
+  %p
+    = f.label :competition
+    %br
+    = f.text_field :competition
+  %p
+    = f.label :match
+    %br
+    = f.text_field :match
+  %p
+    = f.label :home_team
+    %br
+    = f.text_field :home_team
+  %p
+    = f.label :visitor_team
+    %br
+    = f.text_field :visitor_team
+  %p
+    = f.label :home_goals
+    %br
+    = f.text_field :home_goals
+  %p
+    = f.label :visitor_goals
+    %br
+    = f.text_field :visitor_goals
+  %p
+    = f.label :score
+    %br
+    = f.text_field :score
+  %p
+    = f.submit "Submit"

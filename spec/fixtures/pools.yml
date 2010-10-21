@@ -1,0 +1,19 @@
+one:
+  user: 
+  competition: 
+  match: 
+  home_team: 
+  visitor_team: 
+  home_goals: 1
+  visitor_goals: 1
+  score: 1
+
+two:
+  user: 
+  competition: 
+  match: 
+  home_team: 
+  visitor_team: 
+  home_goals: 1
+  visitor_goals: 1
+  score: 1

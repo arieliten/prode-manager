@@ -1,0 +1,38 @@
+!!! Strict
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}
+    %title Prode Sudafrica 2010 - Application Layout
+    = stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/drastic-dark/style", "redmond", :cache => true
+    = javascript_include_tag :defaults, 'jquery.ui.tabs', 'jquery.jeditable'
+    = yield :stylesheets
+    = yield :javascripts
+  %body
+    #container
+      #header
+        %h1= link_to "Prode Sudafrica 2010", root_path
+        - if current_user
+          #user-navigation
+            %ul.wat-cf
+              %li= link_to "Mi Cuenta", edit_user_registration_path
+              %li= link_to "Mi Prode", pools_path
+              %li= link_to "Cerrar Sesion", destroy_user_session_path, :class=>'logout'
+            %ul.wat-cf
+        - else
+          #user-navigation
+            %ul.wat-cf
+              %li= link_to "Registrarse", new_user_registration_path
+              %li= link_to "Iniciar Sesion", new_user_session_path
+            %ul.wat-cf
+      #wrapper.wat-cf
+        .flash
+          - flash.each do |type, message|
+            .message{:class => type.to_s}
+              %p= message
+        #main
+          = yield
+          #footer
+            .block
+              <p>Copyright &copy; #{ Time.now.year }.</p>
+        #sidebar
+          = yield :sidebar

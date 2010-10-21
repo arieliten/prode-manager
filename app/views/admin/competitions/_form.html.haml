@@ -1,0 +1,46 @@
+
+.group
+  = f.label :name, t("activerecord.attributes.competition.name", :default => "Name"), :class => :label
+  = f.text_field :name, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :starts_at, t("activerecord.attributes.competition.starts_at", :default => "Starts at"), :class => :label
+  = f.datetime_select :starts_at, :class => 'datetime_select'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :ends_at, t("activerecord.attributes.competition.ends_at", :default => "Ends at"), :class => :label
+  = f.datetime_select :ends_at, :class => 'datetime_select'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :type, t("activerecord.attributes.competition.type", :default => "Type"), :class => :label
+  = f.text_field :type, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :max_number_of_participants, t("activerecord.attributes.competition.max_number_of_participants", :default => "Max number of participants"), :class => :label
+  = f.text_field :max_number_of_participants, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :home_visitor_matches, t("activerecord.attributes.competition.home_visitor_matches", :default => "Home visitor matches"), :class => :label
+  = f.check_box :home_visitor_matches, :class => 'check_box'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :single_match_on_final, t("activerecord.attributes.competition.single_match_on_final", :default => "Single match on final"), :class => :label
+  = f.check_box :single_match_on_final, :class => 'check_box'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :visitor_goals_counts_double, t("activerecord.attributes.competition.visitor_goals_counts_double", :default => "Visitor goals counts double"), :class => :label
+  = f.check_box :visitor_goals_counts_double, :class => 'check_box'
+  <span class="description">Ex: a simple text</span>
+        
+.group.navform.wat-cf
+  %button.button{:type => 'submit'}
+    = image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
+    = t("web-app-theme.save", :default => "Save")
+  = link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}", admin_competitions_path, :class => "button"

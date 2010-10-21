@@ -1,4 +1,6 @@
 class Clasification < ActiveRecord::Base
+  has_permalink :name, :update=>true
+
   # == Relations
   belongs_to :team
   belongs_to :stage
@@ -12,6 +14,10 @@ class Clasification < ActiveRecord::Base
 
 
   # == Instance Methods
+
+  def to_param
+    self.permalink
+  end
 
   def matches
     home_matches + visitor_matches

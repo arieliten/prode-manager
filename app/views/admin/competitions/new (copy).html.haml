@@ -1,0 +1,22 @@
+%h1 Create new competition
+
+- form_for @competition, :url => admin_competitions_path do |f| 
+  = error_messages_for :competition
+
+  = label_tag :competition_mode
+  = select_tag :competition_mode, options_for_select([['Cup','Cup'],['League','League']], params[:competition_mode])
+  %br
+  = label :competition, :name
+  = text_field :competition, :name
+  %br
+  = label :competition, :starts_at
+  = date_select :competition, :starts_at
+  %br
+  = label :competition, :ends_at 
+  = date_select :competition, :ends_at
+  %br
+  = label :competition, :max_number_of_participants
+  = select :competition, :max_number_of_participants, (1..64).map{|x|[x,x]}
+  %br  
+  = submit_tag "Create Competition"
+

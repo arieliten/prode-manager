@@ -1,0 +1,29 @@
+%h2 Mi perfil
+
+- form_for resource_name, resource, :url => registration_path(resource_name), :html => { :method => :put } do |f|
+  = f.error_messages
+
+  %p= f.label :email
+  %p= f.text_field :email
+
+  %p
+    = f.label :password
+    %i (dejar en blanco si no quieres cambiar tu contraseña)
+  %p= f.password_field :password
+
+  %p= f.label :password_confirmation
+  %p= f.password_field :password_confirmation
+
+  %p
+    = f.label :current_password
+    %i (necesitamos tu password actual para poder confirmar los cambios)
+  %p= f.password_field :current_password
+
+  %p= f.submit "Actualizar"
+
+%h3 Cancelar mi cuenta
+
+%p 
+  ¿No está contento? 
+  = link_to "Cancelar mi cuenta", registration_path(resource_name), :confirm => "¿Estás seguro?", :method => :delete
+

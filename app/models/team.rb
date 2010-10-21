@@ -1,4 +1,6 @@
 class Team < ActiveRecord::Base
+  has_permalink :name, :update=>true
+
   # == Relations
   belongs_to :competition
   belongs_to :group
@@ -16,6 +18,11 @@ class Team < ActiveRecord::Base
 
 
   # == Instance Methods
+
+  def to_param
+    self.permalink
+  end
+
 
   def matches
     home_matches + visitor_matches

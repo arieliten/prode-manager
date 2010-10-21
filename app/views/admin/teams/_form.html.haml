@@ -1,0 +1,26 @@
+
+.group
+  = f.label :name, t("activerecord.attributes.team.name", :default => "Name"), :class => :label
+  = f.text_field :name, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :shortening, t("activerecord.attributes.team.shortening", :default => "Shortening"), :class => :label
+  = f.text_field :shortening, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :is_selection, t("activerecord.attributes.team.is_selection", :default => "Is selection"), :class => :label
+  = f.check_box :is_selection, :class => 'check_box'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :competition_id, t("activerecord.attributes.team.competition_id", :default => "Competition"), :class => :label
+  = f.text_field :competition_id, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+        
+.group.navform.wat-cf
+  %button.button{:type => 'submit'}
+    = image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
+    = t("web-app-theme.save", :default => "Save")
+  = link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}", admin_teams_path, :class => "button"

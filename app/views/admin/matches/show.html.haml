@@ -1,0 +1,40 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to t("web-app-theme.list", :default => "List"), admin_matches_path
+      %li= link_to t("web-app-theme.new", :default => "New"), new_admin_match_path
+      %li.active= link_to t("web-app-theme.show", :default => "Show"), admin_match_path
+  .content
+    .inner
+      %p
+        <b>#{ t("activerecord.attributes.admin_match.stage_id", :default => t("activerecord.labels.stage_id", :default => "Stage")) }:</b>
+        = @match.stage_id
+      %p
+        <b>#{ t("activerecord.attributes.admin_match.starts_at", :default => t("activerecord.labels.starts_at", :default => "Starts at")) }:</b>
+        = @match.starts_at
+      %p
+        <b>#{ t("activerecord.attributes.admin_match.home_team_id", :default => t("activerecord.labels.home_team_id", :default => "Home team")) }:</b>
+        = @match.home_team_id
+      %p
+        <b>#{ t("activerecord.attributes.admin_match.visitor_team_id", :default => t("activerecord.labels.visitor_team_id", :default => "Visitor team")) }:</b>
+        = @match.visitor_team_id
+      %p
+        <b>#{ t("activerecord.attributes.admin_match.home_goals", :default => t("activerecord.labels.home_goals", :default => "Home goals")) }:</b>
+        = @match.home_goals
+      %p
+        <b>#{ t("activerecord.attributes.admin_match.visitor_goals", :default => t("activerecord.labels.visitor_goals", :default => "Visitor goals")) }:</b>
+        = @match.visitor_goals
+      %p
+        <b>#{ t("activerecord.attributes.admin_match.state", :default => t("activerecord.labels.state", :default => "State")) }:</b>
+        = @match.state
+      %p
+        <b>#{ t("activerecord.attributes.admin_match.home_clasification_id", :default => t("activerecord.labels.home_clasification_id", :default => "Home clasification")) }:</b>
+        = @match.home_clasification_id
+      %p
+        <b>#{ t("activerecord.attributes.admin_match.visitor_clasification_id", :default => t("activerecord.labels.visitor_clasification_id", :default => "Visitor clasification")) }:</b>
+        = @match.visitor_clasification_id
+      .wat-cf
+        #{ link_to "#{image_tag("web-app-theme/application_edit.png", :alt => t("web-app-theme.edit", :default=> "Edit"))} #{t("web-app-theme.edit", :default=> "Edit")}", edit_admin_match_path(@match), :class => "button" } 
+        #{ link_to "#{image_tag("web-app-theme/cross.png", :alt => t("web-app-theme.delete", :default=> "Delete"))} #{t("web-app-theme.delete", :default => "Delete")}", admin_match_path(@match), :method => "delete", :class => "button", :confirm => t("web-app-theme.confirm", :default => "Are you sure?") }
+
+- content_for :sidebar, render(:partial => 'sidebar')

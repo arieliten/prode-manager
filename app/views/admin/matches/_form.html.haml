@@ -1,0 +1,51 @@
+
+.group
+  = f.label :stage_id, t("activerecord.attributes.match.stage_id", :default => "Stage"), :class => :label
+  = f.text_field :stage_id, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :starts_at, t("activerecord.attributes.match.starts_at", :default => "Starts at"), :class => :label
+  = f.datetime_select :starts_at, :class => 'datetime_select'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :home_team_id, t("activerecord.attributes.match.home_team_id", :default => "Home team"), :class => :label
+  = f.text_field :home_team_id, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :visitor_team_id, t("activerecord.attributes.match.visitor_team_id", :default => "Visitor team"), :class => :label
+  = f.text_field :visitor_team_id, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :home_goals, t("activerecord.attributes.match.home_goals", :default => "Home goals"), :class => :label
+  = f.text_field :home_goals, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :visitor_goals, t("activerecord.attributes.match.visitor_goals", :default => "Visitor goals"), :class => :label
+  = f.text_field :visitor_goals, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :state, t("activerecord.attributes.match.state", :default => "State"), :class => :label
+  = f.text_field :state, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :home_clasification_id, t("activerecord.attributes.match.home_clasification_id", :default => "Home clasification"), :class => :label
+  = f.text_field :home_clasification_id, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+
+.group
+  = f.label :visitor_clasification_id, t("activerecord.attributes.match.visitor_clasification_id", :default => "Visitor clasification"), :class => :label
+  = f.text_field :visitor_clasification_id, :class => 'text_field'
+  <span class="description">Ex: a simple text</span>
+        
+.group.navform.wat-cf
+  %button.button{:type => 'submit'}
+    = image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
+    = t("web-app-theme.save", :default => "Save")
+  = link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}", admin_matches_path, :class => "button"

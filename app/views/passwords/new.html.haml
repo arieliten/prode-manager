@@ -1,0 +1,10 @@
+%h2 Olvidó su contraseña
+
+- form_for resource_name, resource, :url => password_path(resource_name) do |f|
+  = f.error_messages
+
+  %p= f.label :email
+  %p= f.text_field :email
+
+  %p= f.submit "Envíenme instrucciones"
+

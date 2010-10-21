@@ -1,0 +1,37 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to t("web-app-theme.list", :default => "List"), admin_competitions_path
+      %li= link_to t("web-app-theme.new", :default => "New"), new_admin_competition_path
+      %li.active= link_to t("web-app-theme.show", :default => "Show"), admin_competition_path
+  .content
+    .inner
+      %p
+        <b>#{ t("activerecord.attributes.admin_competition.name", :default => t("activerecord.labels.name", :default => "Name")) }:</b>
+        = @competition.name
+      %p
+        <b>#{ t("activerecord.attributes.admin_competition.starts_at", :default => t("activerecord.labels.starts_at", :default => "Starts at")) }:</b>
+        = @competition.starts_at
+      %p
+        <b>#{ t("activerecord.attributes.admin_competition.ends_at", :default => t("activerecord.labels.ends_at", :default => "Ends at")) }:</b>
+        = @competition.ends_at
+      %p
+        <b>#{ t("activerecord.attributes.admin_competition.type", :default => t("activerecord.labels.type", :default => "Type")) }:</b>
+        = @competition.type
+      %p
+        <b>#{ t("activerecord.attributes.admin_competition.max_number_of_participants", :default => t("activerecord.labels.max_number_of_participants", :default => "Max number of participants")) }:</b>
+        = @competition.max_number_of_participants
+      %p
+        <b>#{ t("activerecord.attributes.admin_competition.home_visitor_matches", :default => t("activerecord.labels.home_visitor_matches", :default => "Home visitor matches")) }:</b>
+        = @competition.home_visitor_matches
+      %p
+        <b>#{ t("activerecord.attributes.admin_competition.single_match_on_final", :default => t("activerecord.labels.single_match_on_final", :default => "Single match on final")) }:</b>
+        = @competition.single_match_on_final
+      %p
+        <b>#{ t("activerecord.attributes.admin_competition.visitor_goals_counts_double", :default => t("activerecord.labels.visitor_goals_counts_double", :default => "Visitor goals counts double")) }:</b>
+        = @competition.visitor_goals_counts_double
+      .wat-cf
+        #{ link_to "#{image_tag("web-app-theme/application_edit.png", :alt => t("web-app-theme.edit", :default=> "Edit"))} #{t("web-app-theme.edit", :default=> "Edit")}", edit_admin_competition_path(@competition), :class => "button" } 
+        #{ link_to "#{image_tag("web-app-theme/cross.png", :alt => t("web-app-theme.delete", :default=> "Delete"))} #{t("web-app-theme.delete", :default => "Delete")}", admin_competition_path(@competition), :method => "delete", :class => "button", :confirm => t("web-app-theme.confirm", :default => "Are you sure?") }
+
+- content_for :sidebar, render(:partial => 'sidebar')
